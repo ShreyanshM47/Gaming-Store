@@ -15,6 +15,36 @@ nav {
   background-color: #2a2a2a;
   padding: 10px 0;
   margin-bottom: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+nav::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 300%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 0, 0, 0.2),
+    rgba(0, 255, 0, 0.2),
+    rgba(0, 0, 255, 0.2),
+    transparent
+  );
+  animation: rgb-animation 10s linear infinite;
+  z-index: 0;
+}
+
+@keyframes rgb-animation {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 0;
+  }
 }
 
 nav ul {
@@ -23,6 +53,8 @@ nav ul {
   margin: 0;
   display: flex;
   justify-content: center;
+  position: relative;
+  z-index: 1;
 }
 
 nav ul li {
@@ -52,6 +84,27 @@ nav a:hover {
   border-radius: 8px;
   text-align: center;
   transition: transform 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.product-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 300%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 0, 0, 0.1),
+    rgba(0, 255, 0, 0.1),
+    rgba(0, 0, 255, 0.1),
+    transparent
+  );
+  animation: rgb-animation 10s linear infinite;
+  z-index: 0;
 }
 
 .product-card:hover {
@@ -63,15 +116,21 @@ nav a:hover {
   height: auto;
   border-radius: 8px;
   margin-bottom: 10px;
+  position: relative;
+  z-index: 1;
 }
 
 .product-card h3 {
   margin-bottom: 5px;
+  position: relative;
+  z-index: 1;
 }
 
 .product-card p {
   color: #ccc;
   margin-bottom: 10px;
+  position: relative;
+  z-index: 1;
 }
 
 .product-card button {
@@ -82,6 +141,8 @@ nav a:hover {
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  position: relative;
+  z-index: 1;
 }
 
 .product-card button:hover {
